@@ -1,0 +1,351 @@
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* background-image: url("https://raw.githubusercontent.com/fionavi/Doenerwetter/main/test/media/kebabHintergrund.png");
+     */
+}
+
+#c {
+    display: inline-block;
+    margin-left: -10px;
+}
+
+h2{
+    font-family: monospace;
+}
+.sec1 {
+
+    display: inline-block;
+    margin: 20px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+
+.sec2 {
+    display: inline-block;
+    
+    margin-left: 60px;
+    width: 50px;
+    position: relative;
+    display: inline-block;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#gameArea{
+    display: inline-block;
+    margin: 20px;
+    width: 1500px;
+    height: 400px;
+    margin-bottom: 20px;
+}
+#info{
+    float: right;
+    background-color: rgb(212, 212, 212);
+    margin-right: 10;
+    width: 400px;
+    height: 400px;
+}
+
+#form1 {
+    width: 200px;
+    float: right;
+    margin-right: 10px;
+    margin-top: -5px;
+    
+}
+
+#start{
+    float: center;
+    width: 150px;
+    height: 50px;
+}
+
+#start:hover{
+    background-color: brown;
+}
+
+#stocking{
+    width: 500px;
+    height: 100px;
+    float: left;
+    align-items: center;
+}
+
+#counter{
+    vertical-align: middle;
+    height: 100px;
+    width: 00px;
+}
+
+.canvas{
+ color: rgb(44, 44, 44);   
+}
+
+#money {
+    position: relative;
+    margin-top: -60px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80px;
+    width: 170px;
+     background: gold;
+     border-color: black;
+    border-style: groove;
+}
+
+#earnings {
+    align-self: center;
+    margin-left: 50px;
+    margin-top: 0px;
+    font-size: xx-large;
+}
+
+#bread{
+    
+    height: 50px;
+    width: 50px;
+     background: orange;
+     border-color: black;
+    border-style: groove;
+    float: left;
+}
+
+
+#meterB {
+    position: absolute;
+    bottom: 1;
+    width: 40px;
+    height: 20px;
+    margin-top: 15px;
+    margin-left: -33px;
+}
+#tomato{
+    height: 50px;
+    width: 50px;
+    background: red;
+    border-color: black;
+    border-style: groove;
+}
+#meterT {
+    position: absolute;
+    bottom: 1;
+    width: 40px;
+    height: 20px;
+    margin-top: 15px;
+    margin-left: -43px;
+}
+#lettuce{
+    height: 50px;
+    width: 50px;
+    background: greenyellow;
+    border-color: black;
+    border-style: groove;
+}
+#meterL {
+    position: absolute;
+    bottom: 1;
+    width: 40px;
+    height: 20px;
+    margin-top: 15px;
+    margin-left: -43px;
+}
+
+#onion{
+    height: 50px;
+    width: 50px;
+    background: purple;
+    border-color: black;
+    border-style: groove;
+}
+#meterO {
+    position: absolute;
+    bottom: 1;
+    width: 40px;
+    height: 20px;
+    margin-top: 15px;
+    margin-left: -35px;
+}
+
+#meat{
+    height: 50px;
+    width: 50px;
+    background: brown;
+    border-color: black;
+    border-style: groove;
+}
+#meterM {
+    position: absolute;
+    bottom: 1;
+    width: 40px;
+    height: 20px;
+    margin-top: 15px;
+    margin-left: -30px;
+}
+button.refill {
+    margin-top: 15px;
+    margin-left: 5px;
+    align-self: center;
+    height: 15px;
+    width: 40px;
+    font-size: xx-small;
+}
+
+
+#breadStock{
+    height: 100px;
+    width: 100px;
+    background: orange;
+    border-color: black;
+    border-style: groove;
+}
+#stockMeterB{
+    position: absolute;
+    bottom: 1;
+    width: 80px;
+    height: 40px;
+    margin-top: 25px;
+    margin-left: -30px;
+}
+
+#tomatoStock{
+    height: 100px;
+    width: 100px;
+    background: red;
+    border-color: black;
+    border-style: groove;
+}
+#stockMeterT{
+    position: absolute;
+    bottom: 1;
+    width: 80px;
+    height: 40px;
+    margin-top: 25px;
+    margin-left: -40px;
+}
+
+#lettuceStock{
+    height: 100px;
+    width: 100px;
+    border-color: black;
+    border-style: groove;
+    background: greenyellow;
+}
+#stockMeterL{
+    position: absolute;
+    bottom: 1;
+    width: 80px;
+    height: 40px;
+    margin-top: 25px;
+    margin-left: -40px;
+}
+
+#onionStock{
+    height: 100px;
+    width: 100px;
+    border-color: black;
+    border-style: groove;
+    background: purple;
+}
+#stockMeterO{
+    position: absolute;
+    bottom: 1;
+    width: 80px;
+    height: 40px;
+    margin-top: 25px;
+    margin-left: -30px;
+}
+
+#meatStock{
+    height: 100px;
+    width: 100px;
+    border-color: black;
+    border-style: groove;
+    background: brown;
+}
+
+#stockMeterM{
+    position: absolute;
+    bottom: 1;
+    width: 80px;
+    height: 40px;
+    margin-top: 25px;
+    margin-left: -25px;
+}
+
+button:hover{
+ background-color: black;
+ color: aliceblue;
+ 
+}
+
+#buyBread, #buyTomato, #buyLettuce, #buyOnion, #buyMeat {
+    margin-top: 50px;
+    margin-left: 15px;
+    fill-opacity: 0;
+}
+
+#breadA{
+    
+    height: 50px;
+    width: 50px;
+     background: orange;
+     border-color: black;
+    border-style: groove;
+    float: left;
+    margin-left: 50px;
+}
+
+#tomatoA{
+    
+    height: 50px;
+    width: 50px;
+     background: red;
+     border-color: black;
+    border-style: groove;
+    float: left;
+    margin-left: 50px;
+}
+
+#lettuceA{
+    
+    height: 50px;
+    width: 50px;
+     background: yellowgreen;
+     border-color: black;
+    border-style: groove;
+    float: left;
+    margin-left: 50px;
+}
+
+#onionA{
+    
+    height: 50px;
+    width: 50px;
+     background: purple;
+     border-color: black;
+    border-style: groove;
+    float: left;
+    margin-left: 50px;
+}
+
+#meatA{
+    
+    height: 50px;
+    width: 50px;
+    margin-left: 50px;
+    background: brown;
+    border-color: black;
+    border-style: groove;
+    float: left;
+}
+
+#addB, #addT, #addL, #addO, #addM{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+#pay{
+    margin-bottom: 10px;
+    margin-left: 35px;
+    height: 20px;
+}

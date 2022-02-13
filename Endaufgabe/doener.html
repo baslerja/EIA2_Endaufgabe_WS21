@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+
+
+
+    <title>DÖNERWETTER</title>
+</head>
+
+<body>
+
+
+    <!--  <div id="stocking">Stocking -->
+
+    <section class="sec1">
+        <div id="breadStock">Bread<meter id="stockMeterB" value="0.8"></meter>
+            <button id="buyBread">buy new</button>
+        </div>
+
+    </section>
+    <section class="sec1">
+        <div id="tomatoStock">Tomato<meter id="stockMeterT" value="0.8"></meter>
+            <button id="buyTomato">buy new</button>
+        </div>
+
+    </section>
+    <section class="sec1">
+        <div id="lettuceStock">Lettuce<meter id="stockMeterL" value="0.8"></meter>
+            <button id="buyLettuce">buy new</button>
+        </div>
+
+    </section>
+    <section class="sec1">
+        <div id="onionStock">Onion<meter id="stockMeterO" value="0.8"></meter>
+            <button id="buyOnion">buy new</button>
+        </div>
+
+    </section>
+    <section class="sec1">
+        <div id="meatStock">Meat<meter id="stockMeterM" value="0.8"></meter>
+            <button id="buyMeat">buy new</button>
+        </div>
+
+    </section>
+    <br>
+
+    <section class="sec2">
+        <div id="bread">Bread<meter id="meterB" value="0.8"></meter>
+            <button class="refill" id="refillBread">refill</button>
+        </div>
+    </section>
+    <section class="sec2">
+        <div id="tomato">Tomato<meter id="meterT" value="0.8"></meter>
+            <button class="refill" id="refillTomato">refill</button>
+        </div>
+    </section>
+    <section class="sec2">
+        <div id="lettuce">Lettuce<meter id="meterL" value="0.8"></meter>
+            <button class="refill" id="refillLettuce">refill</button>
+        </div>
+    </section>
+    <section class="sec2">
+        <div id="onion">Onion<meter id="meterO" value="0.8"></meter>
+            <button class="refill" id="refillOnion">refill</button>
+        </div>
+
+    </section>
+    <section class="sec2">
+        <div id="meat">Meat<meter id="meterM" value="0.8"></meter>
+            <button class="refill" id="refillMeat">refill</button>
+        </div>
+
+    </section>
+    <!-- </div> -->
+
+
+
+    <section id="gameArea">
+        <canvas id="c" width=900 height=400></canvas>
+
+        <form id="form1">
+
+           <!--  <h2>DÖNERWETTER</h2>
+ -->
+            <fieldset>
+                <legend> Staff </legend>
+                <legend> Amount of Workers </legend>
+                <input type="number" name="amountWorker" id="worker" step="1" min="1" max="2" value="1" />
+
+                <legend>Stress Level</legend>
+                <input type="radio" name="stressLevel" id="low" value="low" class="stress" checked="checked" />
+                <label for="slim">low</label>
+                <input type="radio" name="stressLevel" id="high" value="high" class="stress" />
+                <label for="wide">high</label>
+            </fieldset>
+
+            <fieldset>
+                <legend> Customers</legend>
+                <input type="number" name="amountCustomer" id="temperatur" step="1" min="5" max="15" value="5" />
+                per
+                minute
+            </fieldset>
+
+            <fieldset>
+                <legend>Ingredients </legend>
+                <input type="number" name="amountIngredients" id="ingredients" step="1" min="10" max="100" value="50" />
+                % of each ingedient
+            </fieldset>
+            <button type="button" id="start">Start Game</button>
+        </form>
+
+        <div id="info">Bestellungen</div>
+    </section>
+
+
+
+
+
+
+
+    <div id="Counter">
+
+        <section class="sec2"></section>
+        <div id="breadA">bread<button type="button" id="addB">add</button></div>
+        </section>
+       <!--  <section class="sec2"></section> -->
+        <div id="tomatoA">tomato<button type="button" id="addT">add</button> </div>
+       <!--  </section>
+        <section class="sec2"></section> -->
+        <div id="lettuceA">lettuce<button type="button" id="addL">add</button> </div>
+<!--         </section>
+        <section class="sec2"></section> -->
+        <div id="onionA">onion <button type="button" id="addO">add</button> </div>
+       <!--  </section>
+        <section class="sec2"></section> -->
+        <div id="meatA">meat<button type="button" id="addM">add</button> </div>
+       <!--  </section> -->
+        <!-- <section class="sec2"></section> -->
+        <div id="money">Earnings: <div id="earnings">0.00 €</div>
+            <button id="pay">cash up order</button>
+        </div>
+        <!-- </section> -->
+        
+    </div>
+
+</body>
+<script src="Vector.js" type="text/javascript" charset="utf-8"></script>
+<script src="Human.js" type="text/javascript" charset="utf-8"></script>
+<script src="Costumer.js" type="text/javascript" charset="utf-8"></script>
+<script src="Worker.js" type="text/javascript" charset="utf-8"></script>
+<script src="Prepared.js" type="text/javascript" charset="utf-8"></script>
+<script src="main.js" type="text/javascript" charset="utf-8"></script>
+<script src="container.js" type="text/javascript" charset="utf-8"></script>
+<script src="pay.js" type="text/javascript" charset="utf-8"></script>
+<script src="addIngredients.js" type="text/javascript" charset="utf-8"></script>
+
+</html>

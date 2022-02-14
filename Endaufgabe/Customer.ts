@@ -11,20 +11,18 @@ namespace DoenerTest {
             this.velocity = new Vector(0, 0);
             this.velocity.set(100, 0);
             this.myOrder = this.showOrder();
-            //this.velocity.scale(5);
         }
 
         move(_timeslice: number, _x: number, _y: number): void {
-            //console.log("Costumer move");
+            
             let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
-           // crc2.resetTransform;
+           
             if (this.position.x < 100) {
                 this.position.x += 10;
                 this.velocity.set(10, 0);
                 this.velocity.scale(5);
-
             }
 
             if (this.position.x > 830) {
@@ -32,16 +30,11 @@ namespace DoenerTest {
                 this.velocity.set(-10, 0);
                 this.velocity.scale(5);
             }
-
-
         }
 
         feel(_mood: string): void {
-            // console.log("Costumer feel");
 
             if (_mood == "sad") {
-
-                //console.log("costumer is sad");
 
                 crc2.resetTransform();
                 crc2.save();
@@ -64,8 +57,6 @@ namespace DoenerTest {
             }
 
             if (_mood == "happy") {
-                // display happy face
-                // console.log("costumer is happy");
 
                 crc2.resetTransform();
                 crc2.save();
@@ -85,87 +76,42 @@ namespace DoenerTest {
         }
 
         draw(): void {
-            // console.log("Customer drawing");
+           
             crc2.resetTransform();
             crc2.save();
             crc2.translate(this.position.x, this.position.y);
 
-            crc2.fillStyle = "red";
+            crc2.fillStyle = "#597c9e";
             crc2.strokeStyle = "black";
 
-
-            //Arm rechts
+            // right arm
             crc2.beginPath();
             crc2.ellipse(35, -30, 5, 12, 2, 20, 40);
             crc2.closePath();
             crc2.fill();
             crc2.stroke();
-            //Arm links
+            // left arm
             crc2.beginPath();
             crc2.ellipse(-15, -30, 5, 12, -2, 20, 40);
             crc2.closePath();
             crc2.fill();
             crc2.stroke();
 
-
-            //Bauch
+            // body
             crc2.beginPath();
             crc2.ellipse(10, -25, 20, 25, 0, 20, 40);
             crc2.closePath();
             crc2.fill();
             crc2.stroke();
 
-
-
-            //Kopf
+            // head
             crc2.beginPath();
             crc2.ellipse(10, -60, 15, 15, 0, 20, 40);
             crc2.closePath();
             crc2.fill();
             crc2.stroke();
 
-            //Füße -> linker Fuß = Nullpunkt
-            crc2.beginPath();
-            crc2.ellipse(0, 0, 8, 7, 0, 20, 40);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-
-            crc2.beginPath();
-            crc2.ellipse(20, 0, 8, 7, 0, 20, 40);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-
-
             crc2.restore();
-
-            //Gesicht
-            crc2.fillStyle = "black";
-            crc2.beginPath();
-            crc2.ellipse(15, -50, 2, 2, 0, 20, 40);
-            crc2.moveTo(15, -50);
-            crc2.lineTo(15, -45);
-            crc2.lineTo(10, -45);
-            crc2.lineTo(20, -45);
-            crc2.lineTo(15, -45);
-
-            crc2.closePath();
-
-            crc2.fill();
-            crc2.stroke();
-
-            crc2.beginPath();
-            crc2.ellipse(10, -55, 1, 1, 0, 20, 40);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-
-            crc2.beginPath();
-            crc2.ellipse(20, -55, 1, 1, 0, 20, 40);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
 
         }
 
@@ -180,17 +126,6 @@ namespace DoenerTest {
             return guestOrder;
         }
     }
-
-    /*function order(): Storage {
-       let guestOrder: Storage = {
-           bread: 1,
-           tomato: randomOrder(),
-           lettuce: randomOrder(),
-           onion: randomOrder(),
-           meat: randomOrder(),
-       }
-       return guestOrder; 
-}*/
 
     function randomOrder(): number {
 

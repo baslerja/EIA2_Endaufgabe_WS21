@@ -2,6 +2,8 @@
 var DoenerTest;
 (function (DoenerTest) {
     class Vector {
+        x;
+        y;
         constructor(_x, _y) {
             this.set(_x, _y);
         }

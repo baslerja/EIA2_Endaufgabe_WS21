@@ -28,9 +28,6 @@ var DoenerTest;
         DoenerTest.counterLeft.bread -= 10;
         let meter = document.querySelector("#meterB");
         meter.setAttribute("value", DoenerTest.counterLeft.bread / 100);
-        /*  console.log("bread was added");
-         console.log("current order is: ");
-         console.log(currentOrder) */
         let displayIngredient = new DoenerTest.Prepared(1, 750, 180);
         displayIngredient.drawBread();
         DoenerTest.drawOrders.push(displayIngredient);
@@ -47,7 +44,6 @@ var DoenerTest;
         let meter = document.querySelector("#meterT");
         meter.setAttribute("value", DoenerTest.counterLeft.tomato / 100);
         let displayIngredient = new DoenerTest.Prepared(1, 750, 180);
-        //displayIngredient.drawTomato();
         DoenerTest.drawOrders.push(displayIngredient);
         if (DoenerTest.counterLeft.tomato <= 0) {
             alert("refill tomatos!");
@@ -91,8 +87,7 @@ var DoenerTest;
         DoenerTest.counterLeft.meat -= 10;
         let meter = document.querySelector("#meterM");
         meter.setAttribute("value", DoenerTest.counterLeft.meat / 100);
-        let displayIngredient = new DoenerTest.Prepared(1, 750, 180);
-        //displayIngredient.drawMeat();
+        let displayIngredient = new DoenerTest.Prepared(1, 750, 100);
         DoenerTest.drawOrders.push(displayIngredient);
         if (DoenerTest.counterLeft.meat <= 0) {
             alert("refill meat!");

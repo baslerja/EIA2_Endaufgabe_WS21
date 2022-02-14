@@ -32,7 +32,6 @@ namespace DoenerTest {
         document.querySelector("#refillMeat").addEventListener("click", refillMeat);
     }
 
-
     export function refillBread(): void {
         console.log("worker is going to refill bread");
 
@@ -88,9 +87,8 @@ namespace DoenerTest {
         let meterStockL: any = document.querySelector("#stockMeterL");
         meterStockL.setAttribute("value", storageLeft.lettuce / 1000);
         refillLettuceIsClicked = true;
-
-
     }
+
     export function bringLettuce(): void {
 
         if (workers[0].position.x == 260 && workers[0].position.y == 120) {
@@ -133,9 +131,7 @@ namespace DoenerTest {
         storageLeft.meat -= amountMissing;
         let meterStockM: any = document.querySelector("#stockMeterM");
         meterStockM.setAttribute("value", storageLeft.meat / 1000);
-
     }
-
 
     export function bringMeat(): void {
 
@@ -147,9 +143,6 @@ namespace DoenerTest {
             refillMeatIsClicked = false;
         }
     }
-
-
-
 
 
     export function buyBread(): void {
@@ -211,6 +204,4 @@ namespace DoenerTest {
         let m: any = document.querySelector("#stockMeterM");
         m.setAttribute("value", 1);
     }
-
-
 }        

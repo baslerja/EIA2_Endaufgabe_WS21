@@ -29,11 +29,7 @@ namespace DoenerTest {
         counterLeft.bread -= 10;
         let meter: any = document.querySelector("#meterB");
         meter.setAttribute("value", counterLeft.bread / 100);
-        /*  console.log("bread was added");
-         console.log("current order is: ");
-         console.log(currentOrder) */
-
-
+        
         let displayIngredient: Prepared = new Prepared(1, 750, 180);
         displayIngredient.drawBread();
         drawOrders.push(displayIngredient);
@@ -53,7 +49,6 @@ namespace DoenerTest {
         meter.setAttribute("value", counterLeft.tomato / 100);
 
         let displayIngredient: Prepared = new Prepared(1, 750, 180);
-        //displayIngredient.drawTomato();
 
         drawOrders.push(displayIngredient);
 
@@ -61,8 +56,8 @@ namespace DoenerTest {
 
             alert("refill tomatos!");
         }
-
     }
+
     export function addLettuce(): void {
         addLettuceIsClicked = true;
         lettuceIsDrawn = true;
@@ -108,8 +103,8 @@ namespace DoenerTest {
         let meter: any = document.querySelector("#meterM");
         meter.setAttribute("value", counterLeft.meat / 100);
 
-        let displayIngredient: Prepared = new Prepared(1, 750, 180);
-        //displayIngredient.drawMeat();
+        let displayIngredient: Prepared = new Prepared(1, 750, 100);
+        
         drawOrders.push(displayIngredient);
 
         if (counterLeft.meat <= 0) {
@@ -117,5 +112,4 @@ namespace DoenerTest {
             alert("refill meat!");
         }
     }
-
 }

@@ -1,6 +1,5 @@
  namespace DoenerTest {
     
-
     export class Human {
         position: Vector;
         velocity: Vector;
@@ -8,13 +7,9 @@
         x: number;
         y: number;
 
-
-        
         constructor(_position: number, _x?: number, _y?: number) {
-         /*    console.log("Human CONSTRUCTOR");
-            this.position = new Vector(_x, _y);
-            this.velocity = new Vector(0, 0);
-            this.velocity.random(100, 150); */
+        //  console.log("Human CONSTRUCTOR");
+        
         }
 
         move(_timeslice: number, _x: number, _y: number): void {

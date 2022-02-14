@@ -12,7 +12,6 @@ namespace DoenerTest {
     export let currentCustomerAmount: number = 0;
     export let earnings: number = 0;
     export let happyScore: number = 0;
-    console.log(currentCustomerAmount);
     export let info: HTMLElement = document.querySelector("#info");
     export let orderCorrect: boolean;
     export let moodWorker: string;
@@ -20,7 +19,6 @@ namespace DoenerTest {
 
     export let xOfWorker: number;
     export let yOfWorker: number;
-
 
 
     export interface Vector {
@@ -69,8 +67,11 @@ namespace DoenerTest {
             return;
         }
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
+
         document.querySelector("#start").addEventListener("click", startGame);
+
         drawBackground();
+
         imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
         window.setInterval(update, 20);
     }
@@ -88,15 +89,13 @@ namespace DoenerTest {
         ordersMade = [];
         currentCustomerAmount = 0;
 
-
         const form: HTMLFormElement = document.querySelector("form")!;
         const data: FormData = new FormData(form);
         const amountStock: string = data.get("amountIngredients") as string;
         let stock: number = parseInt(amountStock + Math.floor);    //string in number parsen
         storageLeft.bread = storageLeft.tomato = storageLeft.lettuce = storageLeft.onion = storageLeft.meat = stock;
-        // console.log("Stock Amount: " + stock);
 
-        //chart in bread stock div soll angepasst werden
+        //meter in stock div soll angepasst werden
         let meterB: any = document.querySelector("#stockMeterB");
         meterB.setAttribute("value", stock / 100);
         storageLeft.bread = 10 * stock;
@@ -113,28 +112,13 @@ namespace DoenerTest {
         meterM.setAttribute("value", stock / 100);
         storageLeft.meat = 10 * stock;
 
-        // console.log("Onion bread: " + storageLeft.bread);
-
-        // console.log("Stresslevel Worker: " + stressLevel);
-
-
-
-
         createWorker(data);
         sendCustomers(data);
-
 
         setTimeout(function (): void {
             alert("Time is up! You made " + happyScore + " customers happy today! Reload page to start a new game.");
 
-        }, 60000); //wait 90 seconds
-        // console.log("Anzahl Costumer per min: " + amountCostumer);
-
-        // asdf();
-
-        /* orderInTheMaking();
-        console.log("oder in the making aufruf");
-    */
+        }, 90000); //wait 90 seconds
 
         //return false; // prevent reload // Quelle: https://dev.to/deciduously/formdata-in-typescript-24cl
     }
@@ -142,9 +126,7 @@ namespace DoenerTest {
     export function createWorker(data: FormData): void {
 
         const amountWorker: string = data.get("amountWorker") as string;    //form Data anzahl worker als string holen
-        // console.log("Anzahl Worker: " + amountWorker);
         let amount: number = parseInt(amountWorker);    //string in number parsen
-        // let worker: Human = new Worker(300, 300);
 
         for (let index: number = 0; index < amount; index++) {      //solange index kleiner als anzahl worker ist soll ein neuer worker erstellt werden
             let randomX: number = Math.random() * 300 + Math.random() * 300 + 50;
@@ -153,7 +135,6 @@ namespace DoenerTest {
             worker.draw();
             worker.feel("tired");
             workers.push(worker);
-
         }
     }
 
@@ -164,13 +145,11 @@ namespace DoenerTest {
         for (let index: number = 0; index < amountC; index++) {      //solange index kleiner als anzahl costumer ist soll ein neuer costumer erstellt werden
             await new Promise(f => setTimeout(f, 60000 / amountC));     // Math.floor(Math.random() * (60000 - 1000 + 1)) + 1000  
             createCustomer();
-
         }
     }
 
     export function createCustomer(): void {
-
-        // console.log('new customer created'); 
+ 
         let customer: Customer = new Customer(1, 830, 380);
         orders.push(customer.myOrder);
         customer.feel("happy");
@@ -181,306 +160,15 @@ namespace DoenerTest {
         console.log(" Order of Customer: ");
         console.log(customer.myOrder);
 
-
-        // info.innerHTML = " ";
-        let firstOrder: string = "Ich hätte gerne einen Döner mit " + customer.myOrder.tomato + " mal Tomaten, " + customer.myOrder.lettuce + " mal Kraut, " + customer.myOrder.onion + " mal Zwiebeln und " + customer.myOrder.meat + " mal Fleisch." + "<br> " + "<br> ";
+        let firstOrder: string = "Ich hätte gerne einen Döner mit " + customer.myOrder.bread + " Brot, " + customer.myOrder.tomato + " mal Tomaten, " + customer.myOrder.lettuce + " mal Kraut, " + customer.myOrder.onion + " mal Zwiebeln und " + customer.myOrder.meat + " mal Fleisch." + "<br> " + "<br> ";
         displayOrders.push(firstOrder);
         // info.innerHTML.get(displayOrders) as string;
         info.innerHTML = displayOrders;
         currentCustomerAmount++;
 
-
         //console.log(1 + index + " customers erstellt");
         // console.log("c position = " + customer.position.x + " and " + customer.position.y);
-
     }
-
-    function drawBackground(): void {
-        console.log("Background is drawing");
-
-
-
-        crc2.fillStyle = "grey";
-        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
-
-
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(10, 10);
-
-        crc2.fillStyle = "black";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, 100);
-        crc2.lineTo(700, 100);
-        crc2.lineTo(700, 0);
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(100, 250);
-
-        crc2.fillStyle = "black";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(550, 50);
-        crc2.lineTo(0, 50);
-        crc2.lineTo(0, 0);
-        crc2.lineTo(550, 0);
-        crc2.lineTo(550, 50);
-        crc2.lineTo(550, 0);
-        crc2.lineTo(550, -140);
-        crc2.lineTo(610, -140);
-        crc2.lineTo(610, 50);
-
-
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(895, 395);
-        crc2.strokeStyle = "black";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, -150);
-        crc2.lineTo(-50, -180);
-        crc2.lineTo(-50, -30);
-
-        crc2.closePath();
-        //crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(200, 255);
-
-        crc2.fillStyle = "red";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, 40);
-        crc2.lineTo(40, 40);
-        crc2.lineTo(40, 0);
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(120, 255);
-
-        crc2.fillStyle = "orange";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, 40);
-        crc2.lineTo(40, 40);
-        crc2.lineTo(40, 0);
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(280, 255);
-
-        crc2.fillStyle = "greenyellow";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, 40);
-        crc2.lineTo(40, 40);
-        crc2.lineTo(40, 0);
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(360, 255);
-
-        crc2.fillStyle = "purple";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, 40);
-        crc2.lineTo(40, 40);
-        crc2.lineTo(40, 0);
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(440, 255);
-
-        crc2.fillStyle = "brown";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, 40);
-        crc2.lineTo(40, 40);
-        crc2.lineTo(40, 0);
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(20, 20);
-
-        crc2.fillStyle = "orange";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, 80);
-        crc2.lineTo(80, 80);
-        crc2.lineTo(80, 0);
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(120, 20);
-
-        crc2.fillStyle = "red";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, 80);
-        crc2.lineTo(80, 80);
-        crc2.lineTo(80, 0);
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(220, 20);
-
-        crc2.fillStyle = "greenyellow";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, 80);
-        crc2.lineTo(80, 80);
-        crc2.lineTo(80, 0);
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(320, 20);
-
-        crc2.fillStyle = "purple";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, 80);
-        crc2.lineTo(80, 80);
-        crc2.lineTo(80, 0);
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(420, 20);
-
-        crc2.fillStyle = "brown";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, 80);
-        crc2.lineTo(80, 80);
-        crc2.lineTo(80, 0);
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.restore();
-
-
-
-        // Kasse:
-
-        crc2.resetTransform();
-        crc2.save();
-        crc2.translate(550, 255);
-
-        crc2.fillStyle = "gold";
-        crc2.save();
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, 40);
-        crc2.lineTo(80, 40);
-        crc2.lineTo(80, 0);
-        crc2.moveTo(0, 0);
-        crc2.lineTo(0, -15);
-        crc2.lineTo(30, -15);
-        crc2.lineTo(30, 0);
-
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-
-
-        crc2.restore();
-    }
-
 
     export function update(_x: number, _y: number): any {
         crc2.putImageData(imgData, 1, 1);
@@ -509,12 +197,7 @@ namespace DoenerTest {
 
             // console.log("update c");
         }
-
-
-
-
     }
-
 
     export function moodCheck(): void {
 
@@ -555,8 +238,6 @@ namespace DoenerTest {
             moodCustomer = "happy";
         }
     }
-
-
 
     export function workerWalkCheck(): void {
         // Walk between Containers and Counter
@@ -658,5 +339,260 @@ namespace DoenerTest {
         if (xOfWorker == workers[0].position.x && yOfWorker == workers[0].position.y) {
             addMeatIsClicked = false;
         }
+    }
+
+    function drawBackground(): void {
+        console.log("Background is drawing");
+
+        crc2.resetTransform();
+
+        let crc2Pattern: CanvasRenderingContext2D;
+        let canvasPattern: HTMLCanvasElement = document.createElement("canvas");
+        if (!canvasPattern)
+            return;
+        crc2Pattern = <CanvasRenderingContext2D>canvasPattern.getContext("2d");
+
+        canvasPattern.width = 50;
+        canvasPattern.height = 50;
+
+        crc2Pattern.fillStyle = "#d9d9d9";
+        crc2Pattern.strokeStyle = "#c7c7c7";
+        crc2Pattern.lineWidth = 3;
+        crc2Pattern.fillRect(0, 0, canvasPattern.width, canvasPattern.height);
+        crc2Pattern.rect(0, 0, 50, 50);
+        crc2Pattern.stroke();
+
+        let pattern: CanvasPattern = <CanvasPattern>crc2.createPattern(canvasPattern, "repeat");
+        crc2.fillStyle = pattern;
+        crc2.fillRect(0, 0, 900, 400);
+
+        
+        // Counter
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(10, 10);
+
+        crc2.fillStyle = "#8f6635";
+        crc2.strokeStyle = "#2e2e2e";
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, 100);
+        crc2.lineTo(700, 100);
+        crc2.lineTo(700, 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(100, 250);
+
+        crc2.beginPath();
+        crc2.moveTo(550, 50);
+        crc2.lineTo(0, 50);
+        crc2.lineTo(0, 0);
+        crc2.lineTo(550, 0);
+        crc2.lineTo(550, 50);
+        crc2.lineTo(550, 0);
+        crc2.lineTo(550, -140);
+        crc2.lineTo(610, -140);
+        crc2.lineTo(610, 50);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+        //Container
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(895, 400);
+
+        crc2.strokeStyle = "black";
+        crc2.lineWidth = 4;
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, -150);
+
+        crc2.moveTo(0, -150);
+        crc2.lineTo(-75, -200);
+
+        crc2.closePath();
+        crc2.stroke();
+
+
+        // Container filling
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(200, 255);
+
+        crc2.strokeStyle = "black";
+        crc2.lineWidth = 2;
+        crc2.fillStyle = "red";
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, 40);
+        crc2.lineTo(40, 40);
+        crc2.lineTo(40, 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(120, 255);
+
+        crc2.fillStyle = "orange";
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, 40);
+        crc2.lineTo(40, 40);
+        crc2.lineTo(40, 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(280, 255);
+
+        crc2.fillStyle = "#23940f";
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, 40);
+        crc2.lineTo(40, 40);
+        crc2.lineTo(40, 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(360, 255);
+
+        crc2.fillStyle = "purple";
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, 40);
+        crc2.lineTo(40, 40);
+        crc2.lineTo(40, 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(440, 255);
+
+        crc2.fillStyle = "brown";
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, 40);
+        crc2.lineTo(40, 40);
+        crc2.lineTo(40, 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(20, 20);
+
+        crc2.fillStyle = "orange";
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, 80);
+        crc2.lineTo(80, 80);
+        crc2.lineTo(80, 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(120, 20);
+
+        crc2.fillStyle = "red";
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, 80);
+        crc2.lineTo(80, 80);
+        crc2.lineTo(80, 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(220, 20);
+
+        crc2.fillStyle = "#23940f";
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, 80);
+        crc2.lineTo(80, 80);
+        crc2.lineTo(80, 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(320, 20);
+
+        crc2.fillStyle = "purple";
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, 80);
+        crc2.lineTo(80, 80);
+        crc2.lineTo(80, 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(420, 20);
+
+        crc2.fillStyle = "brown";
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, 80);
+        crc2.lineTo(80, 80);
+        crc2.lineTo(80, 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+
+        // Cash register
+        crc2.resetTransform();
+        crc2.save();
+        crc2.translate(550, 255);
+
+        crc2.fillStyle = "gold";
+        crc2.beginPath();
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, 40);
+        crc2.lineTo(80, 40);
+        crc2.lineTo(80, 0);
+        crc2.moveTo(0, 0);
+        crc2.lineTo(0, -15);
+        crc2.lineTo(30, -15);
+        crc2.lineTo(30, 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+
+        crc2.restore();
     }
 }

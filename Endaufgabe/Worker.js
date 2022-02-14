@@ -29,16 +29,24 @@ var DoenerTest;
                 DoenerTest.crc2.resetTransform();
                 DoenerTest.crc2.save();
                 DoenerTest.crc2.translate(this.position.x, this.position.y);
+                // eyes
                 DoenerTest.crc2.strokeStyle = "black";
                 DoenerTest.crc2.beginPath();
+                DoenerTest.crc2.moveTo(6, -60);
+                DoenerTest.crc2.lineTo(1, -58);
                 DoenerTest.crc2.moveTo(12, -60);
-                DoenerTest.crc2.lineTo(15, -60);
-                DoenerTest.crc2.moveTo(8, -60);
-                DoenerTest.crc2.lineTo(5, -60);
-                DoenerTest.crc2.arc(12, -60, 8, 0, -1 * Math.PI);
+                DoenerTest.crc2.lineTo(17, -58);
                 DoenerTest.crc2.closePath();
                 DoenerTest.crc2.stroke();
                 DoenerTest.crc2.fill();
+                // mouth
+                DoenerTest.crc2.strokeStyle = "black";
+                DoenerTest.crc2.beginPath();
+                DoenerTest.crc2.arc(10, -50, 5, 0, 2 * Math.PI);
+                DoenerTest.crc2.closePath();
+                DoenerTest.crc2.stroke();
+                DoenerTest.crc2.fill();
+                // zzz
                 DoenerTest.crc2.strokeStyle = "blue";
                 DoenerTest.crc2.beginPath();
                 DoenerTest.crc2.moveTo(20, -75);
@@ -92,7 +100,6 @@ var DoenerTest;
             }
         }
         draw() {
-            // console.log("Worker drawing");
             DoenerTest.crc2.resetTransform();
             DoenerTest.crc2.save();
             DoenerTest.crc2.translate(this.position.x, this.position.y);
@@ -128,6 +135,13 @@ var DoenerTest;
             // head
             DoenerTest.crc2.beginPath();
             DoenerTest.crc2.arc(10, -60, 20, 0, 2 * Math.PI);
+            DoenerTest.crc2.closePath();
+            DoenerTest.crc2.fill();
+            DoenerTest.crc2.stroke();
+            // apron
+            DoenerTest.crc2.beginPath();
+            DoenerTest.crc2.fillStyle = "white";
+            DoenerTest.crc2.rect(-10, -25, 40, 28);
             DoenerTest.crc2.closePath();
             DoenerTest.crc2.fill();
             DoenerTest.crc2.stroke();

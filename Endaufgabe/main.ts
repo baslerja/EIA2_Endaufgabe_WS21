@@ -84,8 +84,6 @@ namespace DoenerTest {
 
     export function startGame(): void {
 
-        console.log("START");
-
         listenToButtons();
         listenToAddButtons();
 
@@ -190,6 +188,12 @@ namespace DoenerTest {
             ingredient.checkOrder();
             ingredient.move(1 / 50, xOfWorker, yOfWorker);
         }
+    }
+
+    export function randomOrder(): number {
+
+        let random: number = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+        return random;
     }
 
     export function moodCheck(): void {
@@ -365,8 +369,8 @@ namespace DoenerTest {
         crc2.save();
         crc2.translate(10, 10);
 
-        crc2.fillStyle = "#8f6635";
-        crc2.strokeStyle = "#2e2e2e";
+        crc2.fillStyle = "#87a0a1";
+        crc2.strokeStyle = "#5d6d6e";
         crc2.beginPath();
         crc2.moveTo(0, 0);
         crc2.lineTo(0, 100);

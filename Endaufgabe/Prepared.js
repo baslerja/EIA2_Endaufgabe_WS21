@@ -9,8 +9,6 @@ var DoenerTest;
         randomX = 70 * Math.random();
         constructor(_position, _x, _y) {
             this.position = new DoenerTest.Vector(_x, _y);
-            this.velocity = new DoenerTest.Vector(0, 0);
-            this.velocity.random(100, 150);
         }
         move(_timeslice, _x, _y) {
             this.position.x = DoenerTest.workers[0].position.x + 10;

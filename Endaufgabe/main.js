@@ -53,7 +53,6 @@ var DoenerTest;
     }
     DoenerTest.handleload = handleload;
     function startGame() {
-        console.log("START");
         DoenerTest.listenToButtons();
         DoenerTest.listenToAddButtons();
         DoenerTest.workers = [];
@@ -144,6 +143,11 @@ var DoenerTest;
         }
     }
     DoenerTest.update = update;
+    function randomOrder() {
+        let random = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+        return random;
+    }
+    DoenerTest.randomOrder = randomOrder;
     function moodCheck() {
         //mood Worker
         const form = document.querySelector("form");
@@ -298,8 +302,8 @@ var DoenerTest;
         DoenerTest.crc2.resetTransform();
         DoenerTest.crc2.save();
         DoenerTest.crc2.translate(10, 10);
-        DoenerTest.crc2.fillStyle = "#8f6635";
-        DoenerTest.crc2.strokeStyle = "#2e2e2e";
+        DoenerTest.crc2.fillStyle = "#87a0a1";
+        DoenerTest.crc2.strokeStyle = "#5d6d6e";
         DoenerTest.crc2.beginPath();
         DoenerTest.crc2.moveTo(0, 0);
         DoenerTest.crc2.lineTo(0, 100);

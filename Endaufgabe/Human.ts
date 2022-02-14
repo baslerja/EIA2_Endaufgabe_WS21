@@ -1,28 +1,29 @@
  namespace DoenerTest {
     
-    export class Human {
-        position: Vector;
-        velocity: Vector;
-        mood: string;
-        x: number;
-        y: number;
+    export abstract class Human {
+        public position: Vector;
+        public velocity: Vector;
+        public mood: string;
+        public x: number;
+        public y: number;
 
-        constructor(_position: number, _x?: number, _y?: number) {
+        public constructor(_position: number, _x?: number, _y?: number) {
             //
         }
 
-        move(_timeslice: number, _x: number, _y: number): void {
+        public move(_timeslice: number, _x: number, _y: number): void {
             //
         }
 
-        feel(_mood: string): void {
+        public feel(_mood: string): void {
             //
         }
 
-        draw(): void {
+        public draw(): void {
             //
         }
-        order(): Storage {
+
+        public order(): Storage {
             let filler: Storage = {
                 bread: 0,
                 tomato: 0,

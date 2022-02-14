@@ -30,35 +30,41 @@ var DoenerTest;
                 DoenerTest.crc2.resetTransform();
                 DoenerTest.crc2.save();
                 DoenerTest.crc2.translate(this.position.x, this.position.y);
+                DoenerTest.crc2.fillStyle = "black";
                 DoenerTest.crc2.strokeStyle = "black";
                 DoenerTest.crc2.beginPath();
-                DoenerTest.crc2.ellipse(5, -60, 1, 1, 2, 20, 40);
-                DoenerTest.crc2.moveTo(15, -60);
-                DoenerTest.crc2.ellipse(15, -60, 1, 1, 2, 20, 40);
-                DoenerTest.crc2.moveTo(8, -65);
-                DoenerTest.crc2.lineTo(3, -67);
-                DoenerTest.crc2.moveTo(12, -65);
-                DoenerTest.crc2.lineTo(18, -67);
-                DoenerTest.crc2.moveTo(17, -50);
-                DoenerTest.crc2.arcTo(7, -55, 5, -50, 5);
-                DoenerTest.crc2.closePath();
+                DoenerTest.crc2.arc(5, -65, 3, 0, 2 * Math.PI);
                 DoenerTest.crc2.fill();
+                DoenerTest.crc2.closePath();
+                DoenerTest.crc2.beginPath();
+                DoenerTest.crc2.arc(15, -65, 3, 0, 2 * Math.PI);
+                DoenerTest.crc2.fill();
+                DoenerTest.crc2.closePath();
+                DoenerTest.crc2.beginPath();
+                DoenerTest.crc2.arc(10, -55, 8, 0, -1 * Math.PI, true);
                 DoenerTest.crc2.stroke();
+                DoenerTest.crc2.closePath();
+                DoenerTest.crc2.restore();
             }
             if (_mood == "happy") {
                 DoenerTest.crc2.resetTransform();
                 DoenerTest.crc2.save();
                 DoenerTest.crc2.translate(this.position.x, this.position.y);
+                DoenerTest.crc2.fillStyle = "black";
                 DoenerTest.crc2.strokeStyle = "black";
                 DoenerTest.crc2.beginPath();
-                DoenerTest.crc2.ellipse(5, -65, 2, 2, 2, 20, 40);
-                DoenerTest.crc2.moveTo(15, -65);
-                DoenerTest.crc2.ellipse(15, -65, 2, 2, 2, 20, 40);
-                DoenerTest.crc2.moveTo(17, -55);
-                DoenerTest.crc2.arcTo(7, -50, 5, -55, 5);
-                DoenerTest.crc2.closePath();
+                DoenerTest.crc2.arc(5, -65, 3, 0, 2 * Math.PI);
                 DoenerTest.crc2.fill();
+                DoenerTest.crc2.closePath();
+                DoenerTest.crc2.beginPath();
+                DoenerTest.crc2.arc(15, -65, 3, 0, 2 * Math.PI);
+                DoenerTest.crc2.fill();
+                DoenerTest.crc2.closePath();
+                DoenerTest.crc2.beginPath();
+                DoenerTest.crc2.arc(10, -55, 8, 0, -1 * Math.PI);
                 DoenerTest.crc2.stroke();
+                DoenerTest.crc2.closePath();
+                DoenerTest.crc2.restore();
             }
         }
         draw() {
@@ -87,7 +93,7 @@ var DoenerTest;
             DoenerTest.crc2.stroke();
             // head
             DoenerTest.crc2.beginPath();
-            DoenerTest.crc2.ellipse(10, -60, 15, 15, 0, 20, 40);
+            DoenerTest.crc2.arc(10, -60, 20, 0, 2 * Math.PI);
             DoenerTest.crc2.closePath();
             DoenerTest.crc2.fill();
             DoenerTest.crc2.stroke();
@@ -96,18 +102,18 @@ var DoenerTest;
         order() {
             let guestOrder = {
                 bread: 1,
-                tomato: randomOrder(),
-                lettuce: randomOrder(),
-                onion: randomOrder(),
-                meat: randomOrder()
+                tomato: DoenerTest.randomOrder(),
+                lettuce: DoenerTest.randomOrder(),
+                onion: DoenerTest.randomOrder(),
+                meat: DoenerTest.randomOrder()
             };
             return guestOrder;
         }
     }
     DoenerTest.Customer = Customer;
-    function randomOrder() {
-        let random = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-        return random;
-    }
+    // function randomOrder(): number {
+    //     let random: number = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+    //     return random;
+    // }
 })(DoenerTest || (DoenerTest = {}));
 //# sourceMappingURL=Customer.js.map

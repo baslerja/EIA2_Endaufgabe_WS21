@@ -1,5 +1,10 @@
-body{
+body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(250, 250, 250);
+}
+
+header {
+    text-align: center;
 }
 
 #c {
@@ -7,9 +12,6 @@ body{
     margin-left: -10px;
 }
 
-h2{
-    font-family: monospace;
-}
 .sec1 {
 
     display: inline-block;
@@ -17,7 +19,6 @@ h2{
     width: 100px;
     margin-bottom: 20px;
 }
-
 
 .sec2 {
     display: inline-block;
@@ -30,19 +31,25 @@ h2{
     background: rgba(255, 255, 255, 0.5);
 }
 
-#gameArea{
+#gameArea {
     display: inline-block;
     margin: 20px;
     width: 1500px;
     height: 400px;
     margin-bottom: 20px;
 }
-#info{
+
+#info {
     float: right;
-    background-color: rgb(212, 212, 212);
-    margin-right: 10;
-    width: 400px;
-    height: 400px;
+    background-color: rgb(247, 252, 209);
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 5px;
+    width: 350px;
+    height: 385px;
+    border-color: rgb(230, 236, 179);
+    border-style: solid;
+    border-style: thin;
 }
 
 #form1 {
@@ -50,42 +57,43 @@ h2{
     float: right;
     margin-right: 10px;
     margin-top: -5px;
-    
 }
 
-#start{
+#start {
     float: center;
-    width: 150px;
-    height: 50px;
+    width: 120px;
+    height: 40px;
+    margin-top: 10px;
 }
 
-#start:hover{
-    background-color: brown;
+#start:hover {
+    background-color: #87a0a1;
+    border-color: #5d6d6e;
+    border-style: solid;
 }
 
-#stocking{
+#stocking {
     width: 500px;
     height: 100px;
     float: left;
     align-items: center;
 }
 
-#counter{
+#counter {
     vertical-align: middle;
     height: 100px;
-    width: 00px;
 }
 
 #money {
-    position: relative;
+    position: absolute;
     margin-top: -60px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 80px;
+    margin-left: 560px;
+    height: 70px;
     width: 170px;
-     background: gold;
-     border-color: black;
-    border-style: groove;
+    background: gold;
+    border-color: rgb(190, 162, 0);
+    border-style: solid;
+    border-style: thin;
 }
 
 #earnings {
@@ -95,16 +103,14 @@ h2{
     font-size: xx-large;
 }
 
-#bread{
-    
+#bread {
     height: 50px;
     width: 50px;
-     background: orange;
-     border-color: black;
-    border-style: groove;
+    background: orange;
+    border-color: rgb(202, 131, 0);
+    border-style: solid;
     float: left;
 }
-
 
 #meterB {
     position: absolute;
@@ -114,13 +120,15 @@ h2{
     margin-top: 15px;
     margin-left: -33px;
 }
-#tomato{
+
+#tomato {
     height: 50px;
     width: 50px;
     background: red;
-    border-color: black;
-    border-style: groove;
+    border-color: rgb(182, 0, 0);
+    border-style: solid;
 }
+
 #meterT {
     position: absolute;
     bottom: 1;
@@ -129,13 +137,15 @@ h2{
     margin-top: 15px;
     margin-left: -43px;
 }
-#lettuce{
+
+#lettuce {
     height: 50px;
     width: 50px;
     background: greenyellow;
-    border-color: black;
-    border-style: groove;
+    border-color: rgb(131, 194, 36);
+    border-style: solid;
 }
+
 #meterL {
     position: absolute;
     bottom: 1;
@@ -145,13 +155,14 @@ h2{
     margin-left: -43px;
 }
 
-#onion{
+#onion {
     height: 50px;
     width: 50px;
     background: purple;
-    border-color: black;
-    border-style: groove;
+    border-color: rgb(82, 0, 82);
+    border-style: solid;
 }
+
 #meterO {
     position: absolute;
     bottom: 1;
@@ -161,13 +172,14 @@ h2{
     margin-left: -35px;
 }
 
-#meat{
+#meat {
     height: 50px;
     width: 50px;
     background: brown;
-    border-color: black;
-    border-style: groove;
+    border-color: rgb(116, 30, 30);
+    border-style: solid;
 }
+
 #meterM {
     position: absolute;
     bottom: 1;
@@ -176,6 +188,7 @@ h2{
     margin-top: 15px;
     margin-left: -30px;
 }
+
 button.refill {
     margin-top: 15px;
     margin-left: 5px;
@@ -185,15 +198,15 @@ button.refill {
     font-size: xx-small;
 }
 
-
-#breadStock{
+#breadStock {
     height: 100px;
     width: 100px;
     background: orange;
-    border-color: black;
-    border-style: groove;
+    border-color: rgb(202, 131, 0);
+    border-style: solid;
 }
-#stockMeterB{
+
+#stockMeterB {
     position: absolute;
     bottom: 1;
     width: 80px;
@@ -202,14 +215,15 @@ button.refill {
     margin-left: -30px;
 }
 
-#tomatoStock{
+#tomatoStock {
     height: 100px;
     width: 100px;
     background: red;
-    border-color: black;
-    border-style: groove;
+    border-color: rgb(182, 0, 0);
+    border-style: solid;
 }
-#stockMeterT{
+
+#stockMeterT {
     position: absolute;
     bottom: 1;
     width: 80px;
@@ -218,14 +232,15 @@ button.refill {
     margin-left: -40px;
 }
 
-#lettuceStock{
+#lettuceStock {
     height: 100px;
     width: 100px;
-    border-color: black;
-    border-style: groove;
     background: greenyellow;
+    border-color: rgb(131, 194, 36);
+    border-style: solid;
+    
 }
-#stockMeterL{
+#stockMeterL {
     position: absolute;
     bottom: 1;
     width: 80px;
@@ -234,14 +249,15 @@ button.refill {
     margin-left: -40px;
 }
 
-#onionStock{
+#onionStock {
     height: 100px;
     width: 100px;
-    border-color: black;
-    border-style: groove;
     background: purple;
+    border-color: rgb(82, 0, 82);
+    border-style: solid;   
 }
-#stockMeterO{
+
+#stockMeterO {
     position: absolute;
     bottom: 1;
     width: 80px;
@@ -250,15 +266,16 @@ button.refill {
     margin-left: -30px;
 }
 
-#meatStock{
+#meatStock {
     height: 100px;
     width: 100px;
-    border-color: black;
-    border-style: groove;
     background: brown;
+    border-color: rgb(116, 30, 30);
+    border-style: solid;
+    
 }
 
-#stockMeterM{
+#stockMeterM {
     position: absolute;
     bottom: 1;
     width: 80px;
@@ -267,9 +284,11 @@ button.refill {
     margin-left: -25px;
 }
 
-button:hover{
- background-color: black;
- color: aliceblue;
+button:hover {
+    background-color: #87a0a1;
+    border-color: #5d6d6e;
+    border-style: solid;
+    color: aliceblue;
  
 }
 
@@ -279,66 +298,63 @@ button:hover{
     fill-opacity: 0;
 }
 
-#breadA{
-    
+#breadA {
     height: 50px;
     width: 50px;
-     background: orange;
-     border-color: black;
-    border-style: groove;
+    background: orange;
+    border-color: rgb(202, 131, 0);
+    border-style: solid;
     float: left;
     margin-left: 50px;
 }
 
-#tomatoA{
-    
+#tomatoA {
     height: 50px;
     width: 50px;
-     background: red;
-     border-color: black;
-    border-style: groove;
+    background: red;
+    border-color: rgb(182, 0, 0);
+    border-style: solid;
     float: left;
     margin-left: 50px;
 }
 
-#lettuceA{
-    
+#lettuceA {
     height: 50px;
     width: 50px;
-     background: yellowgreen;
-     border-color: black;
-    border-style: groove;
+    background: yellowgreen;
+    border-color: rgb(131, 194, 36);
+    border-style: solid;
     float: left;
     margin-left: 50px;
 }
 
-#onionA{
+#onionA {
     
     height: 50px;
     width: 50px;
-     background: purple;
-     border-color: black;
-    border-style: groove;
+    background: purple;
+    border-color: rgb(82, 0, 82);
+    border-style: solid;
     float: left;
     margin-left: 50px;
 }
 
-#meatA{
-    
+#meatA {
     height: 50px;
     width: 50px;
     margin-left: 50px;
     background: brown;
-    border-color: black;
-    border-style: groove;
+    border-color: rgb(116, 30, 30);
+    border-style: solid;
     float: left;
 }
 
-#addB, #addT, #addL, #addO, #addM{
+#addB, #addT, #addL, #addO, #addM {
     margin-top: 5px;
     margin-left: 5px;
 }
-#pay{
+
+#pay {
     margin-bottom: 10px;
     margin-left: 35px;
     height: 20px;

@@ -25,13 +25,12 @@ var DoenerTest;
     }
     DoenerTest.listenToButtons = listenToButtons;
     function refillBread() {
-        console.log("worker is going to refill bread");
+        DoenerTest.refillBreadIsClicked = true;
         let meterB = document.querySelector("#meterB").getAttribute("value");
         let amountMissing = 100 - meterB * 100;
         DoenerTest.storageLeft.bread -= amountMissing;
         let meterStockB = document.querySelector("#stockMeterB");
         meterStockB.setAttribute("value", DoenerTest.storageLeft.bread / 1000);
-        DoenerTest.refillBreadIsClicked = true;
     }
     DoenerTest.refillBread = refillBread;
     function bringBread() {
@@ -45,13 +44,12 @@ var DoenerTest;
     }
     DoenerTest.bringBread = bringBread;
     function refillTomato() {
-        console.log("worker is going to refill tomato");
+        DoenerTest.refillTomatoIsClicked = true;
         let meterT = document.querySelector("#meterT").getAttribute("value");
         let amountMissing = 100 - meterT * 100;
         DoenerTest.storageLeft.tomato -= amountMissing;
         let meterStockT = document.querySelector("#stockMeterT");
         meterStockT.setAttribute("value", DoenerTest.storageLeft.tomato / 1000);
-        DoenerTest.refillTomatoIsClicked = true;
     }
     DoenerTest.refillTomato = refillTomato;
     function bringTomato() {
@@ -65,13 +63,12 @@ var DoenerTest;
     }
     DoenerTest.bringTomato = bringTomato;
     function refillLettuce() {
-        console.log("worker is going to refill lettuce");
+        DoenerTest.refillLettuceIsClicked = true;
         let meterL = document.querySelector("#meterL").getAttribute("value");
         let amountMissing = 100 - meterL * 100;
         DoenerTest.storageLeft.lettuce -= amountMissing;
         let meterStockL = document.querySelector("#stockMeterL");
         meterStockL.setAttribute("value", DoenerTest.storageLeft.lettuce / 1000);
-        DoenerTest.refillLettuceIsClicked = true;
     }
     DoenerTest.refillLettuce = refillLettuce;
     function bringLettuce() {
@@ -85,7 +82,6 @@ var DoenerTest;
     }
     DoenerTest.bringLettuce = bringLettuce;
     function refillOnion() {
-        console.log("worker is going to refill bread");
         DoenerTest.refillOnionIsClicked = true;
         let meterO = document.querySelector("#meterO").getAttribute("value");
         let amountMissing = 100 - meterO * 100;
@@ -105,7 +101,6 @@ var DoenerTest;
     }
     DoenerTest.bringOnion = bringOnion;
     function refillMeat() {
-        console.log("worker is going to refill meat");
         DoenerTest.refillMeatIsClicked = true;
         let meterM = document.querySelector("#meterM").getAttribute("value");
         let amountMissing = 100 - meterM * 100;
@@ -130,7 +125,6 @@ var DoenerTest;
         DoenerTest.storageLeft.bread += amountMissing;
         DoenerTest.earnings -= amountMissing / 100 * 0.5 * Math.floor(1);
         let displayEarnings = document.getElementById("earnings");
-        console.log("Kasse: " + DoenerTest.earnings.toString());
         displayEarnings.innerText = DoenerTest.earnings.toString() + " €";
         let b = document.querySelector("#stockMeterB");
         b.setAttribute("value", 1);
@@ -142,7 +136,6 @@ var DoenerTest;
         DoenerTest.storageLeft.tomato += amountMissing;
         DoenerTest.earnings -= amountMissing / 100 * 0.5 * Math.floor(1);
         let displayEarnings = document.getElementById("earnings");
-        console.log("Kasse: " + DoenerTest.earnings.toString());
         displayEarnings.innerText = DoenerTest.earnings.toString() + " €";
         let t = document.querySelector("#stockMeterT");
         t.setAttribute("value", 1);
@@ -154,7 +147,6 @@ var DoenerTest;
         DoenerTest.storageLeft.lettuce += amountMissing;
         DoenerTest.earnings -= amountMissing / 100 * 0.5 * Math.floor(1);
         let displayEarnings = document.getElementById("earnings");
-        console.log("Kasse: " + DoenerTest.earnings.toString());
         displayEarnings.innerText = DoenerTest.earnings.toString() + " €";
         let l = document.querySelector("#stockMeterL");
         l.setAttribute("value", 1);
@@ -166,7 +158,6 @@ var DoenerTest;
         DoenerTest.storageLeft.onion += amountMissing;
         DoenerTest.earnings -= amountMissing / 100 * 0.5 * Math.floor(1);
         let displayEarnings = document.getElementById("earnings");
-        console.log("Kasse: " + DoenerTest.earnings.toString());
         displayEarnings.innerText = DoenerTest.earnings.toString() + " €";
         let o = document.querySelector("#stockMeterO");
         o.setAttribute("value", 1);
@@ -178,7 +169,6 @@ var DoenerTest;
         DoenerTest.storageLeft.meat += amountMissing;
         DoenerTest.earnings -= amountMissing / 100 * 0.5 * Math.floor(1);
         let displayEarnings = document.getElementById("earnings");
-        console.log("Kasse: " + DoenerTest.earnings.toString());
         displayEarnings.innerText = DoenerTest.earnings.toString() + " €";
         let m = document.querySelector("#stockMeterM");
         m.setAttribute("value", 1);

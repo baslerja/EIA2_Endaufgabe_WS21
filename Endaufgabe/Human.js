@@ -8,19 +8,26 @@ var DoenerTest;
         x;
         y;
         constructor(_position, _x, _y) {
-            //  console.log("Human CONSTRUCTOR");
+            //
         }
         move(_timeslice, _x, _y) {
-            // console.log("Human move");
+            //
         }
         feel(_mood) {
-            // console.log("Human feel");
+            //
         }
         draw() {
-            // console.log("Human draw");
+            //
         }
         order() {
-            // do something
+            let filler = {
+                bread: 0,
+                tomato: 0,
+                lettuce: 0,
+                onion: 0,
+                meat: 0
+            };
+            return filler;
         }
     }
     DoenerTest.Human = Human;

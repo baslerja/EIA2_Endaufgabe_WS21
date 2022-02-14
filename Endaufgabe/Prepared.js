@@ -8,13 +8,13 @@ var DoenerTest;
         y;
         randomX = 70 * Math.random();
         constructor(_position, _x, _y) {
-            console.log("Prepared CONSTRUCTOR");
             this.position = new DoenerTest.Vector(_x, _y);
             this.velocity = new DoenerTest.Vector(0, 0);
             this.velocity.random(100, 150);
         }
         move(_timeslice, _x, _y) {
-            // console.log("Human move");
+            this.position.x = DoenerTest.workers[0].position.x + 10;
+            this.position.y = DoenerTest.workers[0].position.y - 10;
         }
         checkOrder() {
             if (DoenerTest.refillBreadIsClicked == true || DoenerTest.refillTomatoIsClicked == true || DoenerTest.refillLettuceIsClicked == true || DoenerTest.refillOnionIsClicked == true || DoenerTest.refillMeatIsClicked == true) {
@@ -39,13 +39,13 @@ var DoenerTest;
         drawContainer() {
             DoenerTest.crc2.resetTransform();
             DoenerTest.crc2.save();
-            DoenerTest.crc2.translate(this.position.x, this.position.y);
-            console.log("draw at position X= " + this.position.x + " Y= " + this.position.y);
+            DoenerTest.crc2.translate(this.position.x + 30, this.position.y);
             DoenerTest.crc2.fillStyle = "grey";
-            //Arm rechts
+            DoenerTest.crc2.strokeStyle = "black";
             DoenerTest.crc2.beginPath();
-            DoenerTest.crc2.ellipse(50, -50, 5, 12, 2, 20, 40);
+            DoenerTest.crc2.rect(0, 10, 40, 20);
             DoenerTest.crc2.closePath();
+            DoenerTest.crc2.scale(0.5, 0.5);
             DoenerTest.crc2.fill();
             DoenerTest.crc2.stroke();
         }
@@ -64,7 +64,6 @@ var DoenerTest;
         }
         drawTomato() {
             this.randomX = Math.floor(this.randomX);
-            console.log(" X random " + this.randomX);
             DoenerTest.crc2.resetTransform();
             DoenerTest.crc2.save();
             DoenerTest.crc2.translate(this.position.x, this.position.y);

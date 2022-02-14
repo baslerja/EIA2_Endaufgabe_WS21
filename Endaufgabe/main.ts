@@ -27,12 +27,10 @@ namespace DoenerTest {
 
     export let xOfWorker: number;
     export let yOfWorker: number;
-
-
-    export interface Vector {
-        x: number;
-        y: number;
-    }
+    export let xOfWorker2: number;
+    export let yOfWorker2: number;
+    export let xOfCustomer: number;
+    export let yOfCustomer: number;
 
     export interface Storage {
         bread: number;
@@ -126,9 +124,7 @@ namespace DoenerTest {
         setTimeout(function (): void {
             alert("Time is up! You made " + happyScore + " customers happy today! Reload page to start a new game.");
 
-        }, 90000); //wait 90 seconds
-
-        //return false; // prevent reload // Quelle: https://dev.to/deciduously/formdata-in-typescript-24cl
+        }, 90000);
     }
 
     export function createWorker(data: FormData): void {
@@ -136,7 +132,7 @@ namespace DoenerTest {
         const amountWorker: string = data.get("amountWorker") as string;    //form Data anzahl worker als string holen
         let amount: number = parseInt(amountWorker);    //string in number parsen
 
-        for (let index: number = 0; index < amount; index++) {      //solange index kleiner als anzahl worker ist soll ein neuer worker erstellt werden
+        for (let index: number = 0; index < amount; index++) {      
             let randomX: number = Math.random() * 300 + Math.random() * 300 + 50;
             randomX = Math.floor(randomX);
             let worker: Human = new Worker(1, randomX, 200);
@@ -147,11 +143,11 @@ namespace DoenerTest {
     }
 
     async function sendCustomers(data: FormData): Promise<void> {
-        const amountCustomer: string = data.get("amountCustomer") as string;    //form Data anzahl worker als string holen
+        const amountCustomer: string = data.get("amountCustomer") as string;    
         let amountC: number = parseInt(amountCustomer);
 
-        for (let index: number = 0; index < amountC; index++) {      //solange index kleiner als anzahl costumer ist soll ein neuer costumer erstellt werden
-            await new Promise(f => setTimeout(f, 60000 / amountC));     // Math.floor(Math.random() * (60000 - 1000 + 1)) + 1000  
+        for (let index: number = 0; index < amountC; index++) {      
+            await new Promise(f => setTimeout(f, 60000 / amountC));  
             createCustomer();
         }
     }
@@ -163,19 +159,12 @@ namespace DoenerTest {
         customer.feel("happy");
         customer.draw();
         customers.push(customer);
-        customer.move(1 / 50);
-
-        console.log(" Order of Customer: ");
-        console.log(customer.myOrder);
+        customer.move(1 / 50, xOfCustomer, yOfCustomer);
 
         let firstOrder: string = "Ich hätte gerne einen Döner mit " + customer.myOrder.bread + " Brot, " + customer.myOrder.tomato + " mal Tomaten, " + customer.myOrder.lettuce + " mal Kraut, " + customer.myOrder.onion + " mal Zwiebeln und " + customer.myOrder.meat + " mal Fleisch." + "<br> " + "<br> ";
         displayOrders.push(firstOrder);
-        // info.innerHTML.get(displayOrders) as string;
         info.innerHTML = displayOrders;
         currentCustomerAmount++;
-
-        //console.log(1 + index + " customers erstellt");
-        // console.log("c position = " + customer.position.x + " and " + customer.position.y);
     }
 
     export function update(_x: number, _y: number): any {
@@ -195,15 +184,11 @@ namespace DoenerTest {
             customer.draw();
             customer.feel("happy");
             customers[0].feel(moodCustomer);
-            // console.log("update c");
         }
-        for (let ingredient of drawOrders) {
-            //ingredient.move(1 / 50, _x, _y);
-            ingredient.checkOrder();
-            console.log("checkOrder Aufruf");
-            //ingredient.move(1 / 50, xOfWorker + 10, yOfWorker - 10);
 
-            // console.log("update c");
+        for (let ingredient of drawOrders) {
+            ingredient.checkOrder();
+            ingredient.move(1 / 50, xOfWorker, yOfWorker);
         }
     }
 
@@ -212,7 +197,7 @@ namespace DoenerTest {
         //mood Worker
         const form: HTMLFormElement = document.querySelector("form")!;
         const data: FormData = new FormData(form);
-        let stressLevel: string = data.get("stressLevel") as string;    //form Data stressLevel of worker als string holen
+        let stressLevel: string = data.get("stressLevel") as string;
 
         if (stressLevel == "low") {
             if (currentCustomerAmount <= 1) {
@@ -298,17 +283,17 @@ namespace DoenerTest {
         }
 
         // Walk To Cash Register
-
-        if (payIsClicked == true) {
-            xOfWorker = 570;
-            yOfWorker = 230;
-        }
-        if (xOfWorker == workers[0].position.x && yOfWorker == workers[0].position.y) {
-            payIsClicked = false;
+        if (workers.length == 1) {
+            if (payIsClicked == true) {
+                xOfWorker = 570;
+                yOfWorker = 230;
+            }
+            if (xOfWorker == workers[0].position.x && yOfWorker == workers[0].position.y) {
+                payIsClicked = false;
+            }
         }
 
         // Walk to add Ingredients at Counter
-
         if (addBreadIsClicked == true) {
             xOfWorker = 125;
             yOfWorker = 245;

@@ -6,15 +6,13 @@ namespace DoenerTest {
 
         constructor(_position: number, _x?: number, _y?: number) {
             super(_position);
-            console.log("Customer CONSTRUCTOR");
             this.position = new Vector(_x, _y);
             this.velocity = new Vector(0, 0);
             this.velocity.set(100, 0);
-            this.myOrder = this.showOrder();
+            this.myOrder = this.order();
         }
 
         move(_timeslice: number, _x: number, _y: number): void {
-            
             let offset: Vector = new Vector(this.velocity.x, this.velocity.y);
             offset.scale(_timeslice);
             this.position.add(offset);
@@ -115,7 +113,7 @@ namespace DoenerTest {
 
         }
 
-        showOrder(): Storage {
+        order(): Storage {
             let guestOrder: Storage = {
                 bread: 1,
                 tomato: randomOrder(),

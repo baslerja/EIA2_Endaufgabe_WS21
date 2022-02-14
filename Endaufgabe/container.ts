@@ -33,14 +33,12 @@ namespace DoenerTest {
     }
 
     export function refillBread(): void {
-        console.log("worker is going to refill bread");
-
+        refillBreadIsClicked = true;
         let meterB: any = document.querySelector("#meterB").getAttribute("value");
         let amountMissing: number = 100 - meterB * 100;
         storageLeft.bread -= amountMissing;
         let meterStockB: any = document.querySelector("#stockMeterB");
         meterStockB.setAttribute("value", storageLeft.bread / 1000);
-        refillBreadIsClicked = true;
     }
 
     export function bringBread(): void {
@@ -55,14 +53,12 @@ namespace DoenerTest {
     }
 
     export function refillTomato(): void {
-        console.log("worker is going to refill tomato");
-
+        refillTomatoIsClicked = true;
         let meterT: any = document.querySelector("#meterT").getAttribute("value");
         let amountMissing: number = 100 - meterT * 100;
         storageLeft.tomato -= amountMissing;
         let meterStockT: any = document.querySelector("#stockMeterT");
         meterStockT.setAttribute("value", storageLeft.tomato / 1000);
-        refillTomatoIsClicked = true;
     }
 
     export function bringTomato(): void {
@@ -78,15 +74,12 @@ namespace DoenerTest {
     }
 
     export function refillLettuce(): void {
-        console.log("worker is going to refill lettuce");
-
-
+        refillLettuceIsClicked = true;
         let meterL: any = document.querySelector("#meterL").getAttribute("value");
         let amountMissing: number = 100 - meterL * 100;
         storageLeft.lettuce -= amountMissing;
         let meterStockL: any = document.querySelector("#stockMeterL");
         meterStockL.setAttribute("value", storageLeft.lettuce / 1000);
-        refillLettuceIsClicked = true;
     }
 
     export function bringLettuce(): void {
@@ -101,9 +94,7 @@ namespace DoenerTest {
     }
 
     export function refillOnion(): void {
-        console.log("worker is going to refill bread");
         refillOnionIsClicked = true;
-
         let meterO: any = document.querySelector("#meterO").getAttribute("value");
         let amountMissing: number = 100 - meterO * 100;
         storageLeft.onion -= amountMissing;
@@ -123,9 +114,7 @@ namespace DoenerTest {
     }
 
     export function refillMeat(): void {
-        console.log("worker is going to refill meat");
         refillMeatIsClicked = true;
-
         let meterM: any = document.querySelector("#meterM").getAttribute("value");
         let amountMissing: number = 100 - meterM * 100;
         storageLeft.meat -= amountMissing;
@@ -151,7 +140,6 @@ namespace DoenerTest {
         storageLeft.bread += amountMissing;
         earnings -= amountMissing / 100 * 0.5 * Math.floor(1);
         let displayEarnings: any = document.getElementById("earnings");
-        console.log("Kasse: " + earnings.toString());
         displayEarnings.innerText = earnings.toString() + " €";
         let b: any = document.querySelector("#stockMeterB");
         b.setAttribute("value", 1);
@@ -163,7 +151,6 @@ namespace DoenerTest {
         storageLeft.tomato += amountMissing;
         earnings -= amountMissing / 100 * 0.5 * Math.floor(1);
         let displayEarnings: any = document.getElementById("earnings");
-        console.log("Kasse: " + earnings.toString());
         displayEarnings.innerText = earnings.toString() + " €";
         let t: any = document.querySelector("#stockMeterT");
         t.setAttribute("value", 1);
@@ -175,7 +162,6 @@ namespace DoenerTest {
         storageLeft.lettuce += amountMissing;
         earnings -= amountMissing / 100 * 0.5 * Math.floor(1);
         let displayEarnings: any = document.getElementById("earnings");
-        console.log("Kasse: " + earnings.toString());
         displayEarnings.innerText = earnings.toString() + " €";
         let l: any = document.querySelector("#stockMeterL");
         l.setAttribute("value", 1);
@@ -187,7 +173,6 @@ namespace DoenerTest {
         storageLeft.onion += amountMissing;
         earnings -= amountMissing / 100 * 0.5 * Math.floor(1);
         let displayEarnings: any = document.getElementById("earnings");
-        console.log("Kasse: " + earnings.toString());
         displayEarnings.innerText = earnings.toString() + " €";
         let o: any = document.querySelector("#stockMeterO");
         o.setAttribute("value", 1);
@@ -199,7 +184,6 @@ namespace DoenerTest {
         storageLeft.meat += amountMissing;
         earnings -= amountMissing / 100 * 0.5 * Math.floor(1);
         let displayEarnings: any = document.getElementById("earnings");
-        console.log("Kasse: " + earnings.toString());
         displayEarnings.innerText = earnings.toString() + " €";
         let m: any = document.querySelector("#stockMeterM");
         m.setAttribute("value", 1);

@@ -5,11 +5,10 @@ var DoenerTest;
         myOrder;
         constructor(_position, _x, _y) {
             super(_position);
-            console.log("Customer CONSTRUCTOR");
             this.position = new DoenerTest.Vector(_x, _y);
             this.velocity = new DoenerTest.Vector(0, 0);
             this.velocity.set(100, 0);
-            this.myOrder = this.showOrder();
+            this.myOrder = this.order();
         }
         move(_timeslice, _x, _y) {
             let offset = new DoenerTest.Vector(this.velocity.x, this.velocity.y);
@@ -94,7 +93,7 @@ var DoenerTest;
             DoenerTest.crc2.stroke();
             DoenerTest.crc2.restore();
         }
-        showOrder() {
+        order() {
             let guestOrder = {
                 bread: 1,
                 tomato: randomOrder(),

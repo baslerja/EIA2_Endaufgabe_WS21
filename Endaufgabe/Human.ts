@@ -8,23 +8,29 @@
         y: number;
 
         constructor(_position: number, _x?: number, _y?: number) {
-        //  console.log("Human CONSTRUCTOR");
-        
+            //
         }
 
         move(_timeslice: number, _x: number, _y: number): void {
-            // console.log("Human move");
+            //
         }
 
         feel(_mood: string): void {
-            // console.log("Human feel");
+            //
         }
 
         draw(): void {
-            // console.log("Human draw");
+            //
         }
-        order(): void {
-            // do something
+        order(): Storage {
+            let filler: Storage = {
+                bread: 0,
+                tomato: 0,
+                lettuce: 0,
+                onion: 0,
+                meat: 0
+            };
+            return filler;
         }
     }
 

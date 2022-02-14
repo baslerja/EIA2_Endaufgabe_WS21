@@ -23,13 +23,11 @@ var DoenerTest;
     function addBread() {
         DoenerTest.addBreadIsClicked = true;
         DoenerTest.breadIsDrawn = true;
-        console.log("bread was clicked");
         DoenerTest.currentOrder.bread++;
         DoenerTest.counterLeft.bread -= 10;
         let meter = document.querySelector("#meterB");
         meter.setAttribute("value", DoenerTest.counterLeft.bread / 100);
-        let displayIngredient = new DoenerTest.Prepared(1, 750, 180);
-        displayIngredient.drawBread();
+        let displayIngredient = new DoenerTest.Prepared(1, DoenerTest.xOfWorker, DoenerTest.yOfWorker);
         DoenerTest.drawOrders.push(displayIngredient);
         if (DoenerTest.counterLeft.bread <= 0) {
             alert("refill bread!");
@@ -43,7 +41,7 @@ var DoenerTest;
         DoenerTest.counterLeft.tomato -= 10;
         let meter = document.querySelector("#meterT");
         meter.setAttribute("value", DoenerTest.counterLeft.tomato / 100);
-        let displayIngredient = new DoenerTest.Prepared(1, 750, 180);
+        let displayIngredient = new DoenerTest.Prepared(1, DoenerTest.xOfWorker, DoenerTest.yOfWorker);
         DoenerTest.drawOrders.push(displayIngredient);
         if (DoenerTest.counterLeft.tomato <= 0) {
             alert("refill tomatos!");
@@ -57,8 +55,7 @@ var DoenerTest;
         DoenerTest.counterLeft.lettuce -= 10;
         let meter = document.querySelector("#meterL");
         meter.setAttribute("value", DoenerTest.counterLeft.lettuce / 100);
-        let displayIngredient = new DoenerTest.Prepared(1, 750, 180);
-        displayIngredient.drawLettuce();
+        let displayIngredient = new DoenerTest.Prepared(1, DoenerTest.xOfWorker, DoenerTest.yOfWorker);
         DoenerTest.drawOrders.push(displayIngredient);
         if (DoenerTest.counterLeft.lettuce <= 0) {
             alert("refill lettuce!");
@@ -72,8 +69,7 @@ var DoenerTest;
         DoenerTest.counterLeft.onion -= 10;
         let meter = document.querySelector("#meterO");
         meter.setAttribute("value", DoenerTest.counterLeft.onion / 100);
-        let displayIngredient = new DoenerTest.Prepared(1, 750, 180);
-        displayIngredient.drawOnion();
+        let displayIngredient = new DoenerTest.Prepared(1, DoenerTest.xOfWorker, DoenerTest.yOfWorker);
         DoenerTest.drawOrders.push(displayIngredient);
         if (DoenerTest.counterLeft.onion <= 0) {
             alert("refill onion!");
@@ -87,7 +83,7 @@ var DoenerTest;
         DoenerTest.counterLeft.meat -= 10;
         let meter = document.querySelector("#meterM");
         meter.setAttribute("value", DoenerTest.counterLeft.meat / 100);
-        let displayIngredient = new DoenerTest.Prepared(1, 750, 100);
+        let displayIngredient = new DoenerTest.Prepared(1, DoenerTest.xOfWorker, DoenerTest.yOfWorker);
         DoenerTest.drawOrders.push(displayIngredient);
         if (DoenerTest.counterLeft.meat <= 0) {
             alert("refill meat!");

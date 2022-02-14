@@ -86,14 +86,13 @@ var DoenerTest;
         sendCustomers(data);
         setTimeout(function () {
             alert("Time is up! You made " + DoenerTest.happyScore + " customers happy today! Reload page to start a new game.");
-        }, 90000); //wait 90 seconds
-        //return false; // prevent reload // Quelle: https://dev.to/deciduously/formdata-in-typescript-24cl
+        }, 90000);
     }
     DoenerTest.startGame = startGame;
     function createWorker(data) {
         const amountWorker = data.get("amountWorker"); //form Data anzahl worker als string holen
         let amount = parseInt(amountWorker); //string in number parsen
-        for (let index = 0; index < amount; index++) { //solange index kleiner als anzahl worker ist soll ein neuer worker erstellt werden
+        for (let index = 0; index < amount; index++) {
             let randomX = Math.random() * 300 + Math.random() * 300 + 50;
             randomX = Math.floor(randomX);
             let worker = new DoenerTest.Worker(1, randomX, 200);
@@ -104,10 +103,10 @@ var DoenerTest;
     }
     DoenerTest.createWorker = createWorker;
     async function sendCustomers(data) {
-        const amountCustomer = data.get("amountCustomer"); //form Data anzahl worker als string holen
+        const amountCustomer = data.get("amountCustomer");
         let amountC = parseInt(amountCustomer);
-        for (let index = 0; index < amountC; index++) { //solange index kleiner als anzahl costumer ist soll ein neuer costumer erstellt werden
-            await new Promise(f => setTimeout(f, 60000 / amountC)); // Math.floor(Math.random() * (60000 - 1000 + 1)) + 1000  
+        for (let index = 0; index < amountC; index++) {
+            await new Promise(f => setTimeout(f, 60000 / amountC));
             createCustomer();
         }
     }
@@ -117,16 +116,11 @@ var DoenerTest;
         customer.feel("happy");
         customer.draw();
         DoenerTest.customers.push(customer);
-        customer.move(1 / 50);
-        console.log(" Order of Customer: ");
-        console.log(customer.myOrder);
+        customer.move(1 / 50, DoenerTest.xOfCustomer, DoenerTest.yOfCustomer);
         let firstOrder = "Ich hätte gerne einen Döner mit " + customer.myOrder.bread + " Brot, " + customer.myOrder.tomato + " mal Tomaten, " + customer.myOrder.lettuce + " mal Kraut, " + customer.myOrder.onion + " mal Zwiebeln und " + customer.myOrder.meat + " mal Fleisch." + "<br> " + "<br> ";
         DoenerTest.displayOrders.push(firstOrder);
-        // info.innerHTML.get(displayOrders) as string;
         DoenerTest.info.innerHTML = DoenerTest.displayOrders;
         DoenerTest.currentCustomerAmount++;
-        //console.log(1 + index + " customers erstellt");
-        // console.log("c position = " + customer.position.x + " and " + customer.position.y);
     }
     DoenerTest.createCustomer = createCustomer;
     function update(_x, _y) {
@@ -143,14 +137,10 @@ var DoenerTest;
             customer.draw();
             customer.feel("happy");
             DoenerTest.customers[0].feel(DoenerTest.moodCustomer);
-            // console.log("update c");
         }
         for (let ingredient of DoenerTest.drawOrders) {
-            //ingredient.move(1 / 50, _x, _y);
             ingredient.checkOrder();
-            console.log("checkOrder Aufruf");
-            //ingredient.move(1 / 50, xOfWorker + 10, yOfWorker - 10);
-            // console.log("update c");
+            ingredient.move(1 / 50, DoenerTest.xOfWorker, DoenerTest.yOfWorker);
         }
     }
     DoenerTest.update = update;
@@ -158,7 +148,7 @@ var DoenerTest;
         //mood Worker
         const form = document.querySelector("form");
         const data = new FormData(form);
-        let stressLevel = data.get("stressLevel"); //form Data stressLevel of worker als string holen
+        let stressLevel = data.get("stressLevel");
         if (stressLevel == "low") {
             if (DoenerTest.currentCustomerAmount <= 1) {
                 DoenerTest.moodWorker = "tired";
@@ -238,12 +228,14 @@ var DoenerTest;
             DoenerTest.yOfWorker = 245;
         }
         // Walk To Cash Register
-        if (DoenerTest.payIsClicked == true) {
-            DoenerTest.xOfWorker = 570;
-            DoenerTest.yOfWorker = 230;
-        }
-        if (DoenerTest.xOfWorker == DoenerTest.workers[0].position.x && DoenerTest.yOfWorker == DoenerTest.workers[0].position.y) {
-            DoenerTest.payIsClicked = false;
+        if (DoenerTest.workers.length == 1) {
+            if (DoenerTest.payIsClicked == true) {
+                DoenerTest.xOfWorker = 570;
+                DoenerTest.yOfWorker = 230;
+            }
+            if (DoenerTest.xOfWorker == DoenerTest.workers[0].position.x && DoenerTest.yOfWorker == DoenerTest.workers[0].position.y) {
+                DoenerTest.payIsClicked = false;
+            }
         }
         // Walk to add Ingredients at Counter
         if (DoenerTest.addBreadIsClicked == true) {

@@ -1,4 +1,11 @@
 "use strict";
+/*
+Endabgabe Döner-Trainer
+Name: Jasmin Basler
+Matrikel: 265114
+Datum: 14.02.2022
+Quellen: In Zusammenarbeit mit Fiona Virnich
+*/
 var DoenerTest;
 (function (DoenerTest) {
     DoenerTest.workers = [];

@@ -1,3 +1,11 @@
+/*
+Endabgabe Döner-Trainer
+Name: Jasmin Basler
+Matrikel: 265114
+Datum: 14.02.2022
+Quellen: In Zusammenarbeit mit Fiona Virnich
+*/
+
 namespace DoenerTest {
     export let crc2: CanvasRenderingContext2D;
     export let imgData: ImageData;

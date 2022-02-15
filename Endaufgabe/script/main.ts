@@ -2,7 +2,7 @@
 Endabgabe Döner-Trainer
 Name: Jasmin Basler
 Matrikel: 265114
-Datum: 14.02.2022
+Datum: 15.02.2022
 Quellen: In Zusammenarbeit mit Fiona Virnich
 */
 
@@ -339,8 +339,6 @@ namespace DoenerTest {
     }
 
     function drawBackground(): void {
-        console.log("Background is drawing");
-
         crc2.resetTransform();
 
         let crc2Pattern: CanvasRenderingContext2D;

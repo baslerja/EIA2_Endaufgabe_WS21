@@ -1,3 +1,8 @@
+/*
+Datum: 15.02.2022
+Quelle: https://github.com/JirkaDellOro/EIA2-Inverted/blob/master/X01_Appendix/eiaSteroids/Vector.ts
+*/
+
 namespace DoenerTest {
     
     export class Vector {

@@ -1,7 +1,7 @@
 "use strict";
 /*
 Datum: 15.02.2022
-Quelle: https://github.com/JirkaDellOro/EIA2-Inverted/blob/master/X01_Appendix/eiaSteroids/Vector.ts
+Quelle: https://github.com/JirkaDellOro/EIA2-Inverted/blob/master/X01_Appendix/eiaSteroids/Vector.ts von Prof. Jirka Dell´Oro Friedl
 */
 var DoenerTest;
 (function (DoenerTest) {
